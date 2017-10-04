@@ -1,0 +1,57 @@
+﻿
+<div class="content" data-ng-controller="AdminGradeController">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!--<label class="pull-left"><input type="checkbox" />  Select All</label>-->
+                <button type="button" rel="tooltip" title="Edit Teacher Details" class="btn btn-primary pull-right" data-ng-click="addGrade()">
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp; Add New Grade
+                </button>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="purple">
+                        <h4 class="title">List of Grades</h4>
+                        <p class="category">Here is a list of all Grades</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-info">
+                                <th>Sr.No.</th>
+                                <th>Name</th>
+                                <th>Description</th>                                
+                                <th>View</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="grade in gradeList">
+                                    <td>({{$index + 1}})</td>
+                                    <td>{{grade.name}}</td>
+                                    <td>{{grade.description}}</td>                                   
+                                    <td>
+                                        <button type="button" rel="tooltip" title="View Grade Details" class="btn btn-primary btn-simple btn-xs" data-ng-click="viewGrade(grade)">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" rel="tooltip" title="Edit Grade Details" class="btn btn-info btn-simple btn-xs" data-ng-click="editGrade(grade)">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" rel="tooltip" title="Delete Grade Details" class="btn btn-danger btn-simple btn-xs" data-ng-click="deleteGrade(grade)">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

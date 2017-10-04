@@ -1,0 +1,17 @@
+E:\dev\MyStudyCart\MSCDAL\bin\Debug\MSCDAL.dll
+E:\dev\MyStudyCart\MSCDAL\bin\Debug\MSCDAL.pdb
+E:\dev\MyStudyCart\MSCDAL\bin\Debug\MSCCommon.dll
+E:\dev\MyStudyCart\MSCDAL\bin\Debug\MSCCommon.pdb
+E:\dev\MyStudyCart\MSCDAL\obj\Debug\MSCDAL.csprojResolveAssemblyReference.cache
+E:\dev\MyStudyCart\MSCDAL\obj\Debug\MSCDAL.dll
+E:\dev\MyStudyCart\MSCDAL\obj\Debug\MSCDAL.pdb
+E:\dev\MSCApp\MSCDAL\bin\Debug\MSCDAL.dll
+E:\dev\MSCApp\MSCDAL\bin\Debug\MSCDAL.pdb
+E:\dev\MSCApp\MSCDAL\bin\Debug\MSCCommon.dll
+E:\dev\MSCApp\MSCDAL\bin\Debug\MSCServices.dll
+E:\dev\MSCApp\MSCDAL\bin\Debug\MSCCommon.pdb
+E:\dev\MSCApp\MSCDAL\bin\Debug\MSCServices.pdb
+E:\dev\MSCApp\MSCDAL\obj\Debug\MSCDAL.csprojResolveAssemblyReference.cache
+E:\dev\MSCApp\MSCDAL\obj\Debug\MSCDAL.csproj.CoreCompileInputs.cache
+E:\dev\MSCApp\MSCDAL\obj\Debug\MSCDAL.dll
+E:\dev\MSCApp\MSCDAL\obj\Debug\MSCDAL.pdb

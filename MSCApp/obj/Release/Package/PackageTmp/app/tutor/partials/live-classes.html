@@ -1,0 +1,76 @@
+﻿<div class="col-md-12" data-ng-controller="TutorController">
+    <div class="card">
+        <div class="card-header" data-background-color="orange">
+            <h4 class="title">Running Classes</h4>
+            <p class="category">Class which is running live now :</p>
+        </div>
+        <div class="card-content table-responsive">
+            <table class="table">
+                <thead class="text-info">
+                    <th>Sr No.</th>
+                    <th>Title</th>
+                    <th>Start Time</th>
+                    <th>Duration</th>
+                    <th>TimeZone</th>
+                    <th>Language Culture</th>
+                    <th>Teacher's Link</th>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="liveSession in liveSessionList" data-ng-if="liveSessionList.length > 0">
+                        <td>({{$index + 1}})</td>
+                        <td>{{liveSession.title}}</td>
+                        <td>{{liveSession.startTime}}</td>
+                        <td>{{liveSession.duration}} (minutes)</td>
+                        <td>{{liveSession.timeZone}}</td>
+                        <td>{{liveSession.languageCultureName}}</td>
+                        <td>
+                            <a href="{{liveSession.tutorLink}}" title="{{liveSession.tutorLink}}" target="_blank"> <i class="fa fa-link" aria-hidden="true"></i> Teacher Link</a>
+                        </td>
+                    </tr>
+                    <tr data-ng-if="liveSessionList.length == 0">
+                        <td colspan="7">
+                            <div style="font-weight:bold; color: #f44336; font-size: 14px; text-align: center;">No live classes found.</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" data-background-color="red">
+            <h4 class="title">Upcoming Classes</h4>
+            <p class="category">Class which is running live now :</p>
+        </div>
+        <div class="card-content table-responsive">
+            <table class="table">
+                <thead class="text-info">
+                    <th>Sr No.</th>
+                    <th>Title</th>
+                    <th>Start Time</th>
+                    <th>Duration</th>
+                    <th>TimeZone</th>
+                    <th>Language Culture</th>
+                    <th>Teacher's Link</th>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="upcomingSession in upcomingSessionList" data-ng-if="upcomingSessionList.length > 0">
+                        <td>({{$index + 1}})</td>
+                        <td>{{upcomingSession.title}}</td>
+                        <td>{{upcomingSession.startTime}}</td>
+                        <td>{{upcomingSession.duration}} (minutes)</td>
+                        <td>{{upcomingSession.timeZone}}</td>
+                        <td>{{upcomingSession.languageCultureName}}</td>
+                        <td>
+                            <a href="{{upcomingSession.attendeeLink}}" title="{{upcomingSession.attendeeLink}}" target="_blank"> <i class="fa fa-link" aria-hidden="true"></i> Teacher Link</a>
+                        </td>
+                    </tr>
+                    <tr data-ng-if="upcomingSessionList.length == 0">
+                        <td colspan="7">
+                            <div style="font-weight:bold; color: #f44336; font-size: 14px; text-align: center;">No upcoming classes found.</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

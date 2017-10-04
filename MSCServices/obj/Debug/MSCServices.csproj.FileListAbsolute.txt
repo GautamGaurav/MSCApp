@@ -1,0 +1,15 @@
+E:\dev\MyStudyCart\MSCServices\bin\Debug\MSCServices.dll
+E:\dev\MyStudyCart\MSCServices\bin\Debug\MSCServices.pdb
+E:\dev\MyStudyCart\MSCServices\bin\Debug\MSCCommon.dll
+E:\dev\MyStudyCart\MSCServices\bin\Debug\MSCCommon.pdb
+E:\dev\MyStudyCart\MSCServices\obj\Debug\MSCServices.csprojResolveAssemblyReference.cache
+E:\dev\MyStudyCart\MSCServices\obj\Debug\MSCServices.dll
+E:\dev\MyStudyCart\MSCServices\obj\Debug\MSCServices.pdb
+E:\dev\MSCApp\MSCServices\bin\Debug\MSCServices.dll
+E:\dev\MSCApp\MSCServices\bin\Debug\MSCServices.pdb
+E:\dev\MSCApp\MSCServices\bin\Debug\MSCCommon.dll
+E:\dev\MSCApp\MSCServices\bin\Debug\MSCCommon.pdb
+E:\dev\MSCApp\MSCServices\obj\Debug\MSCServices.csprojResolveAssemblyReference.cache
+E:\dev\MSCApp\MSCServices\obj\Debug\MSCServices.csproj.CoreCompileInputs.cache
+E:\dev\MSCApp\MSCServices\obj\Debug\MSCServices.dll
+E:\dev\MSCApp\MSCServices\obj\Debug\MSCServices.pdb

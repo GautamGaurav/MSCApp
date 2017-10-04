@@ -1,0 +1,44 @@
+﻿
+<div class="content" data-ng-controller="AdminSubjectController">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="green">
+                        <h4 class="title">Create Subject</h4>
+                        <p class="category">Create, Edit and Update Subject</p>
+                    </div>
+                    <div class="card-content">
+                        <form name="SubjectForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Name</label>
+                                        <input type="text" name="SubjectName" class="form-control" data-ng-model="subject.name" required maxlength="30" minlength="4" />
+                                        <div ng-messages="subjectForm.subjectName.$error" ng-show="subjectForm.subjectName.$dirty || nameRequired != ''">
+                                            <div ng-message="required">Please enter name.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Description</label>
+                                        <input type="text" class="form-control" data-ng-model="subject.description" name="subjectDescription" />
+                                        <div ng-messages="subjectForm.subjectDescription.$error" ng-show="SubjectForm.subjectDescription.$dirty || descriptionRequired != ''">
+                                            <div ng-message="required">Please enter description.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-right" data-ng-click="createSubject()">Save Details</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

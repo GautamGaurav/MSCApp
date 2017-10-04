@@ -1,0 +1,59 @@
+﻿
+<div class="content" data-ng-controller="AdminSubjectController">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!--<label class="pull-left"><input type="checkbox" />  Select All</label>-->
+                <button type="button" rel="tooltip" title="Edit Teacher Details" class="btn btn-primary pull-right" data-ng-click="addSubject()">
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp; Add New Subject
+                </button>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="purple">
+                        <h4 class="title">List of Subjects</h4>
+                        <p class="category">Here is a list of all Subjects</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-info">
+                                <th>Sr.No.</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <!--<th>Created Date</th>-->                                
+                                <th>View</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="subject in subjectList">
+                                    <td>({{$index + 1}})</td>
+                                    <td>{{subject.name}}</td>
+                                    <td>{{subject.description}}</td>                                    
+                                    <!--<td>{{subject.createdDate}}</td>-->
+                                    <td>
+                                        <button type="button" rel="tooltip" title="View Teacher Details" class="btn btn-primary btn-simple btn-xs" data-ng-click="viewSubject(subject)">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" rel="tooltip" title="Edit Teacher Details" class="btn btn-info btn-simple btn-xs" data-ng-click="editSubject(subject)">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button type="button" rel="tooltip" title="Delete Teacher Details" class="btn btn-danger btn-simple btn-xs" data-ng-click="deleteSubject(subject)">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

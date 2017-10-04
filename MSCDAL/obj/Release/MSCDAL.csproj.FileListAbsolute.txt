@@ -1,0 +1,17 @@
+E:\dev\MyStudyCart\MSCDAL\bin\Release\MSCDAL.dll
+E:\dev\MyStudyCart\MSCDAL\bin\Release\MSCDAL.pdb
+E:\dev\MyStudyCart\MSCDAL\bin\Release\MSCCommon.dll
+E:\dev\MyStudyCart\MSCDAL\bin\Release\MSCCommon.pdb
+E:\dev\MyStudyCart\MSCDAL\obj\Release\MSCDAL.csprojResolveAssemblyReference.cache
+E:\dev\MyStudyCart\MSCDAL\obj\Release\MSCDAL.dll
+E:\dev\MyStudyCart\MSCDAL\obj\Release\MSCDAL.pdb
+E:\dev\MSCApp\MSCDAL\bin\Release\MSCDAL.dll
+E:\dev\MSCApp\MSCDAL\bin\Release\MSCDAL.pdb
+E:\dev\MSCApp\MSCDAL\bin\Release\MSCCommon.dll
+E:\dev\MSCApp\MSCDAL\bin\Release\MSCCommon.pdb
+E:\dev\MSCApp\MSCDAL\obj\Release\MSCDAL.csprojResolveAssemblyReference.cache
+E:\dev\MSCApp\MSCDAL\obj\Release\MSCDAL.dll
+E:\dev\MSCApp\MSCDAL\obj\Release\MSCDAL.pdb
+E:\dev\MSCApp\MSCDAL\bin\Release\MSCServices.dll
+E:\dev\MSCApp\MSCDAL\bin\Release\MSCServices.pdb
+E:\dev\MSCApp\MSCDAL\obj\Release\MSCDAL.csproj.CoreCompileInputs.cache

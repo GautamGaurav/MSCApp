@@ -1,0 +1,159 @@
+﻿
+<div class="content" data-ng-controller="AdminStudentController">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header" data-background-color="green">
+                        <h4 class="title">Update student</h4>
+                        <p class="category">Edit and Update Student</p>
+                    </div>
+                    <div class="card-content">
+                        <form name="studentForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Name</label>
+                                        <input type="text" name="studentName" class="form-control" data-ng-model="student.name" required maxlength="30" minlength="4" />
+                                        <div ng-messages="studentForm.studentName.$error" ng-show="studentForm.studentName.$dirty || nameRequired != ''">
+                                            <div ng-message="required">Please enter name.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Email</label>
+                                        <input type="email" class="form-control" data-ng-model="student.email" name="studentEmail" />
+                                        <div ng-messages="studentForm.studentEmail.$error" ng-show="studentForm.studentEmail.$dirty || emailRequired != ''">
+                                            <div ng-message="required">Please enter email.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Password</label>
+                                        <input type="password" class="form-control" data-ng-model="student.password" name="studentPassword" disabled style="background-color:#f2f2f2;" value="*****"/>
+                                        <div ng-messages="studentForm.studentPassword.$error" ng-show="studentForm.studentPassword.$dirty || passwordRequired != ''">
+                                            <div ng-message="required">Please enter password.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Time Zone</label>
+                                        <select class="form-control" data-ng-model="student.timeZone" name="studentTimeZone">
+                                            <option selected>--Select--</option>
+                                            <option ng-repeat="option in timeZoneList" value="{{option.name}}">{{option.name}} ( {{option.utcOffset}} )</option>
+                                        </select>
+                                        <div ng-messages="studentForm.studentTimeZone.$error" ng-show="studentForm.studentTimeZone.$dirty || timeZoneRequired != ''">
+                                            <div ng-message="required">Please enter timezone.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Phone Number</label>
+                                        <input type="text" class="form-control" data-ng-model="student.phoneNumber" name="studentPhoneNumber"
+                                               ng-keypress="isValidPhoneNumberFun(student.phoneNumber)" ng-keydown="isValidPhoneNumberFun(student.phoneNumber)" ng-change="isValidPhoneNumberFun(student.phoneNumber)" />
+                                        <div ng-messages="studentForm.studentPhoneNumber.$error" ng-show="studentForm.studentPhoneNumber.$dirty || phoneRequired != ''">
+                                            <div ng-message="required">Please enter phone number.</div>
+                                        </div>
+                                        <div class="ng-active" ng-if="!isValidPhoneNumber">Please enter valid phone number.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Upload Photo</label>
+                                        <input type="file" class="form-control" data-ng-model="student.photoPath" name="studentphotoPath" style="opacity: 1;height:35px;"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Batch</label>
+                                        <select class="form-control" data-ng-model="student.batchId" name="classstudent">
+                                            <option selected>--Select--</option>
+                                            <option ng-repeat="option in batchList" value="{{option.id}}">{{option.name}} ( {{option.gradeName}} )</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Course</label>
+                                        <select class="form-control" data-ng-model="student.courseId" name="classstudent">
+                                            <option selected>--Select--</option>
+                                            <option ng-repeat="option in courseList" value="{{option.id}}">{{option.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Grade</label>
+                                        <select class="form-control" data-ng-model="student.grade" name="classstudent">
+                                            <option selected>--Select--</option>
+                                            <option ng-repeat="option in gradeList" value="{{option}}">{{option.name}} ( {{option.email}} )</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Student's address</label>
+                                            <textarea class="form-control" rows="3" data-ng-model="student.address"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary pull-right" data-ng-click="updateStudent()">Save Details</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="#pablo">
+                            <img class="img" src="../assets/img/faces/user2.png" />
+                        </a>
+                    </div>
+                    <div class="content">
+                        <h6 class="category text-gray">student Details</h6>
+                        <h4 class="card-title" data-ng-if="student.name != ''"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{student.name}}</h4>
+                        <p class="card-content" data-ng-if="student.email != ''"><i class="fa fa-envelope" aria-hidden="true"></i> {{student.email}}</p>
+                        <p class="card-content" data-ng-if="student.phoneNumber != ''"><i class="fa fa-phone-square" aria-hidden="true"></i> {{student.phoneNumber}}</p>
+                        <!--<p class="card-content" data-ng-if="student.mobileNumber != ''"><i class="fa fa-mobile" aria-hidden="true"></i> {{student.mobileNumber}}</p>-->
+                        <p class="card-content" data-ng-if="student.timeZone != ''"><i class="fa fa-hourglass-half" aria-hidden="true"></i> {{student.timeZone}} Time Zone</p>
+                        <p class="card-content" data-ng-if="student.aboutThestudent != ''"><i class="fa fa-address-card" aria-hidden="true"></i> {{student.aboutThestudent}}</p>
+                        <p class="card-content" data-ng-if="student.canScheduleClass != ''">
+
+                            <i class="fa fa-check-circle-o" style="color:green;" aria-hidden="true" data-ng-if="student.canScheduleClass == 1"></i>
+                            <span style="color:green;" data-ng-if="student.canScheduleClass == 1">Can Schedule a class</span>
+                            <i class="fa fa-times" style="color:red;" aria-hidden="true" data-ng-if="student.canScheduleClass == 0"></i>
+                            <span style="color:red;" data-ng-if="student.canScheduleClass == 0">Can not Schedule a class</span>
+                        </p>
+                        <a href="#pablo" class="btn btn-primary btn-round">{{student.name}} Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

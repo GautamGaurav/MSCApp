@@ -1,0 +1,78 @@
+﻿
+<div class="content" data-ng-controller="AdminCourseController">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="green">
+                        <h4 class="title">Update Course</h4>
+                        <p class="category">Edit and Update course</p>
+                    </div>
+                    <div class="card-content">
+                        <form name="courseForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Name</label>
+                                        <input type="text" name="courseName" class="form-control" data-ng-model="course.name" required maxlength="30" minlength="4" />
+                                        <div ng-messages="courseForm.courseName.$error" ng-show="courseForm.courseName.$dirty || nameRequired != ''">
+                                            <div ng-message="required">Please enter name.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Target Exam</label>
+                                        <input type="text" class="form-control" data-ng-model="course.targetExam" name="coursetargetExam" />
+                                        <div ng-messages="courseForm.courseEmail.$error" ng-show="courseForm.courseEmail.$dirty || emailRequired != ''">
+                                            <div ng-message="required">Please enter target exam.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Target Year</label>
+                                        <select class="form-control" data-ng-model="course.targetYear" name="courseTargetYear">
+                                            <option selected>--Select--</option>
+                                            <option>2017 - 2018</option>
+                                            <option>2018 - 2019</option>
+                                            <option>2019 - 2020</option>
+                                            <option>2020 - 2021</option>
+                                        </select>
+                                        <div ng-messages="courseForm.targetYear.$error" ng-show="courseForm.targetYear.$dirty || targetYearRequired != ''">
+                                            <div ng-message="required">Please enter target year.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Subject</label>
+                                        <select class="form-control" data-ng-model="subject" name="courseSubject">
+                                            <option selected>--Select--</option>
+                                            <option ng-repeat="option in subjectList" value="{{option.id}}">{{option.name}}</option>
+                                        </select>
+                                        <div ng-messages="courseForm.courseTimeZone.$error" ng-show="courseForm.courseTimeZone.$dirty || timeZoneRequired != ''">
+                                            <div ng-message="required">Please enter timezone.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Description</label>
+                                        <input type="text" name="courseDescription" class="form-control" data-ng-model="course.description" />
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-right" data-ng-click="createCourse()">Save Details</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

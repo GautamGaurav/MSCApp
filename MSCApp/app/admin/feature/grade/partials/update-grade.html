@@ -1,0 +1,61 @@
+﻿
+<div class="content" data-ng-controller="AdminGradeController">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header" data-background-color="green">
+                        <h4 class="title">Update Grade</h4>
+                        <p class="category">Update Grade Details</p>
+                    </div>
+                    <div class="card-content">
+                        <form name="gradeForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Name</label>
+                                        <input type="text" name="gradeName" class="form-control" data-ng-model="grade.name" required maxlength="30" minlength="4" />
+                                        <div ng-messages="gradeForm.gradeName.$error" ng-show="gradeForm.gradeName.$dirty || nameRequired != ''">
+                                            <div ng-message="required">Please enter name.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Description</label>
+                                        <textarea class="form-control" rows="3" data-ng-model="grade.description" name="gradeDescription"></textarea>
+                                        <div ng-messages="gradeForm.gradeDescription.$error" ng-show="gradeForm.gradeDescription.$dirty || descriptionRequired != ''">
+                                            <div ng-message="required">Please enter Description.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary pull-right" data-ng-click="createGrade()">Save Details</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="#pablo">
+                            <img class="img" src="../assets/img/faces/user2.png" />
+                        </a>
+                    </div>
+                    <div class="content">
+                        <h6 class="category text-gray">grade Details</h6>
+                        <h4 class="card-title" data-ng-if="grade.name != ''"><i class="fa fa-user-circle-o" aria-hidden="true"></i> {{grade.name}}</h4>
+                        <p class="card-content" data-ng-if="grade.description != ''"><i class="fa fa-envelope" aria-hidden="true"></i> {{grade.description}}</p>
+                        <a href="#pablo" class="btn btn-primary btn-round">{{grade.name}} Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
