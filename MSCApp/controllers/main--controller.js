@@ -1,14 +1,13 @@
-﻿wiziqApp.controller('mainController', ['$scope', '$rootScope', '$window', 'mainService', 'authService', 'utilService', 'notificationService', function ($scope, $rootScope, $window, mainService, authService, utilService, notificationService) {
+﻿wiziqApp.controller('mainController', ['$scope', '$rootScope', '$window', '$state', 'mainService', 'authService', 'utilService', 'notificationService', function ($scope, $rootScope, $window, $state, mainService, authService, utilService, notificationService) {
 
-    $rootScope.user = angular.fromJson($window.localStorage.getItem("user"));
-    $rootScope.isLoggedIn = $rootScope.user !== null ? true : false;
-
-    $scope.changeClass = function (id) {
-        $("#sidebar-menu").find('li').removeClass("active");
-        $('#li' + id).addClass('active');
-    };
+    utilService.checkForLogin();
 
     $scope.isLoginClicked = false;
+
+    $scope.changeClass = function (id) {
+        utilService.changeClass(id);
+    };
+
 
     $scope.doLogin = function () {
         $scope.isLoginClicked = true;

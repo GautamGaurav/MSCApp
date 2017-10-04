@@ -25,7 +25,7 @@
     <div class="wrapper" data-ng-controller="mainController">
         <side-bar data-ng-if="isLoggedIn"></side-bar>
         <div class="main-panel" data-ng-if="isLoggedIn">
-            <header-bar></header-bar>
+            <header-bar  data-ng-if="isLoggedIn"></header-bar>
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <footer-bar></footer-bar>
+            <footer-bar data-ng-if="isLoggedIn"></footer-bar>
         </div>
         <div ui-view data-ng-if="!isLoggedIn">
         </div>

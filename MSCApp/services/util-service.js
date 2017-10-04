@@ -3,9 +3,37 @@
     var _this = this;
 
     _this.checkForLogin = function () {
+        var _user = angular.fromJson($window.localStorage.getItem("user"));
+        var isLoggedIn = _user !== null ? true : false;
+        if (isLoggedIn) {
+            $rootScope.user = _user;
+            $rootScope.isLoggedIn = true;
 
-
+            if (_user.userRole === 1) {
+                $location.path("/admin");
+            }
+            else if (_user.userRole === 2) {
+                $location.path("/student");
+            }
+            else if (_user.userRole === 3) {
+                $location.path("/totuor");
+            }
+            else {
+                $location.path("/login");
+            }
+        } else {
+            $window.localStorage.clear();
+            $rootScope.user = null;
+            $rootScope.isLoggedIn = false;
+            $location.path("/login");
+        }
     }
+
+    _this.changeClass = function (id) {
+        $("#sidebar-menu").find('li').removeClass("active");
+        $('#li' + id).addClass('active');
+    };
+
 
     _this.getDomain = function () {
         var domain = "";
@@ -30,7 +58,6 @@
 
     _this.getCurrentState = function () {
         var state = $state.current.name;
-        var location = $location;
         return state;
     }
 
