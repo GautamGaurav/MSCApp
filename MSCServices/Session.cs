@@ -58,7 +58,7 @@ namespace MSCServices
             var requestParameters = new Dictionary<string, string>();
             requestParameters["class_id"] = session.wId.ToString();
             //Required for permanent class
-            //requestParameters["class_master_id"] = "29783";
+            //requestParameters["class_master_id"] = session.wMasterId.ToString();
             //requestParameters["perma_class"] = "true";
             MSCServices.HttpRequest oRequest = new MSCServices.HttpRequest();
             return WiZiQHelper.MakeRequest("cancel", requestParameters);
@@ -69,7 +69,7 @@ namespace MSCServices
             var requestParameters = new Dictionary<string, string>();
             requestParameters["class_id"] = session.wId.ToString();
             //Required for permanent class
-            //requestParameters["class_master_id"] = "29783";
+            //requestParameters["class_master_id"] = session.wMasterId.ToString();
             //requestParameters["perma_class"] = "true";
             MSCServices.HttpRequest oRequest = new MSCServices.HttpRequest();
             return WiZiQHelper.MakeRequest("delete", requestParameters);
@@ -81,7 +81,7 @@ namespace MSCServices
             //Required for Time-based class
             requestParameters["class_id"] = sessionId.ToString();
             //Required for permanent class
-            //requestParameters["class_master_id"] = "29783";
+            //requestParameters["class_master_id"] = session.wMasterId.ToString();
             //requestParameters["perma_class"] = "true";
             requestParameters["attendee_list"] = attendeeXml;
             return WiZiQHelper.MakeRequest("add_attendees", requestParameters);
