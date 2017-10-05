@@ -1,10 +1,7 @@
 ﻿<div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg" data-ng-controller="mainController">
     <div class="logo">
-        <a href="#" class="simple-text" style="color:deepskyblue;">
-            Mystudycart -
-            <span data-ng-if="user.userType == 1"> Admin</span>
-            <span data-ng-if="user.userType == 2"> Student</span>
-            <span data-ng-if="user.userType == 3"> Teacher</span>
+        <a href="#" class="simple-text">
+            <img src="../assets/logo/mystudycart-logo.png" style="height: 55px;" />
         </a>
     </div>
     <div class="sidebar-wrapper">
@@ -28,7 +25,7 @@
                     <i class="material-icons">person</i>
                     <p>Manage Teacher</p>
                 </a>
-            </li>   
+            </li>
             <li data-ng-click="changeClass('4')" id="li4">
                 <a href="admin/manage-student">
                     <!--<i class="material-icons">person</i>-->
@@ -41,7 +38,7 @@
                     <i class="material-icons">library_books</i>
                     <p>Manage Batch</p>
                 </a>
-            </li>           
+            </li>
             <li data-ng-click="changeClass('6')" id="li6">
                 <a href="admin/manage-grade">
                     <i class="fa fa-line-chart" aria-hidden="true"></i>
@@ -102,7 +99,7 @@
                 </a>
             </li>-->
             <li data-ng-click="changeClass('6')" id="li6">
-                <a href="#">
+                <a href="https://msc.tcyonline.com/login.php" target="_blank">
                     <i class="material-icons">bubble_chart</i>
                     <p>Online Test Series</p>
                 </a>
@@ -133,12 +130,6 @@
                 <a href="tutor/recorded-classes">
                     <i class="material-icons">content_paste</i>
                     <p>Recorded Classes</p>
-                </a>
-            </li>
-            <li data-ng-click="changeClass('6')" id="li6">
-                <a href="#">
-                    <i class="material-icons">bubble_chart</i>
-                    <p>Online Test Series</p>
                 </a>
             </li>
         </ul>

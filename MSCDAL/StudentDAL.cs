@@ -379,5 +379,44 @@ namespace MSCDAL
                 con.Close();
             }
         }
+        public static List<Student> GetStudentByBatchId(int batchId)
+        {
+            List<Student> studentList = new List<Student>();
+            string cs = ConnectionDAL.GetConnectionString();
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                SqlCommand cmd = new SqlCommand("GetStudentByBatchId", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@BatchId", batchId));
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Student _student = new Student();
+                        _student.id = Convert.ToInt32(reader["Id"]);
+                        _student.name = Convert.ToString(reader["Name"]);
+                        _student.email = Convert.ToString(reader["Email"]);
+                        _student.phoneNumber = Convert.ToString(reader["PhoneNumber"]);
+                        _student.address = Convert.ToString(reader["Address"]);
+                        _student.timeZone = Convert.ToString(reader["TimeZone"]);
+                        _student.batchId = Convert.ToInt16(reader["BatchId"]);
+                        _student.batchName = Convert.ToString(reader["BatchName"]);
+                        _student.courseId = Convert.ToInt16(reader["CourseId"]);
+                        _student.courseName = Convert.ToString(reader["CourseName"]);
+                        _student.gradeId = Convert.ToInt16(reader["GradeId"]);
+                        _student.gradeName = Convert.ToString(reader["GradeName"]);
+                        _student.status = 200;
+                        _student.message = "Student Found.";
+                        _student.isError = false;
+                        studentList.Add(_student);
+                    }
+                }
+                con.Close();
+            }
+            return studentList;
+        }
     }
 }

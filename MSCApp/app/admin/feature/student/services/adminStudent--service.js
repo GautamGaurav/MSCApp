@@ -9,6 +9,13 @@
         return $http.post(domain + 'StudentService.asmx/Get', param, config);
     };
 
+    AdminStudentService.getStudentByBatchId = function (id) {
+        var domain = utilService.getDomain();
+        var config = utilService.getConfig();
+        var param = { batchId: parseInt(id) };
+        return $http.post(domain + 'StudentService.asmx/GetStudentByBatchId', param, config);
+    };
+
     AdminStudentService.getAllStudent = function () {
         var domain = utilService.getDomain();
         var config = utilService.getConfig();

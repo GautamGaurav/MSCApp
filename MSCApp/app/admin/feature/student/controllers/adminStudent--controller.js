@@ -33,15 +33,17 @@
         var state = utilService.getCurrentState();
         switch (state) {
             case "admin/manage-student":
+                $scope.student.batchId = '--Select Batch--';
+                $scope.getAllBatch();
                 $scope.isEdit = false;
                 $scope.getAllStudent();
                 break;
             case "admin/create-student":
                 $scope.isEdit = false;
                 $scope.getAllTimeZones();
-                $scope.getAllBatch();                
+                $scope.getAllBatch();
                 $scope.getAllCourse();
-                         
+
                 break;
             case "admin/update-student":
                 $scope.isEdit = true;
@@ -58,8 +60,7 @@
                 $scope.isEdit = false;
                 $scope.getAllStudent();
         }
-    }
-
+    };
 
     $scope.getAllStudent = function () {
         AdminStudentService.getAllStudent().then(
@@ -83,6 +84,24 @@
             function (error) {
                 notificationService.responseHandler(error);
             });
+    };
+
+    $scope.getStudentByBatchId = function (batchId) {
+        if (batchId != '--Select Batch--') {
+            AdminStudentService.getStudentByBatchId(batchId).then(
+           function (response) {
+               $scope.studentList = response.data.d;
+               var message = $scope.studentList.length > 0 ? $scope.studentList.length + " Student(s) Found." : "No Student Found";
+               var index = $scope.studentList.length > 0 ? 1 : 4;
+               notificationService.show(message, index);
+           },
+           function (error) {
+               notificationService.responseHandler(error);
+           });
+        } else {
+            $scope.getAllStudent();
+        }
+       
     };
 
     $scope.createStudent = function () {

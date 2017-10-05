@@ -41,7 +41,8 @@ namespace MSCCommon
         public bool createRecording { get; set; }
         public string returnUrl { get; set; }
         public string statusPingUrl { get; set; }
-        public string coPresenterUrl { get; set; }
+        public string coPresenterLink { get; set; }
+        public string presenterLink { get; set; } 
 
         //public long gradeId { get; set; }
         //public string gradeName { get; set; }
@@ -59,7 +60,7 @@ namespace MSCCommon
 
         }
 
-        public Session(int _id, long _wId,long _wMasterId, int _batchId, string _batchName, int _tutorId, string _tutorName, string _tutorEmail, DateTime _dateTime, string _startTime, string _duration,  string _attendeeLink, string _tutorLink, string _recordingLink, bool _isDelete, bool _isCancelled, DateTime _sessionDate, DateTime _createdDate, DateTime _deletedDate, string _coPresenterUrl)
+        public Session(int _id, long _wId,long _wMasterId, int _batchId, string _batchName, int _tutorId, string _tutorName, string _tutorEmail, DateTime _dateTime, string _startTime, string _duration,  string _attendeeLink, string _tutorLink, string _recordingLink, bool _isDelete, bool _isCancelled, DateTime _sessionDate, DateTime _createdDate, DateTime _deletedDate, string _coPresenterLink, string _presenterLink)
              //int _gradeId, string _gradeName, int _courseId, string _courseName, int _subjectId, string _subjectName, string[] _stundetIds, string _topic, string _title, string _photoPath)
         {
             id = _id;
@@ -79,7 +80,8 @@ namespace MSCCommon
             sessionDate = _sessionDate;
             createdDate = _createdDate;
             deletedDate = _deletedDate;
-            coPresenterUrl = _coPresenterUrl;
+            coPresenterLink = _coPresenterLink;
+            presenterLink = _presenterLink;
             isCancelled = _isCancelled;
 
             //gradeId = _gradeId;
@@ -110,7 +112,8 @@ namespace MSCCommon
             _session.wId = Convert.ToInt64(xmlDoc.GetElementsByTagName("class_id")[0].InnerText);
             _session.recordingLink = xmlDoc.GetElementsByTagName("recording_url")[0].InnerText;
             _session.tutorLink = xmlDoc.GetElementsByTagName("presenter_url")[0].InnerText;
-            _session.coPresenterUrl = xmlDoc.GetElementsByTagName("co_presenter_url")[0].InnerText;
+            _session.presenterLink = xmlDoc.GetElementsByTagName("presenter_url")[0].InnerText;
+            _session.coPresenterLink = xmlDoc.GetElementsByTagName("co_presenter_url")[0].InnerText;
             return _session;
         }
 
@@ -123,10 +126,12 @@ namespace MSCCommon
             foreach (XmlNode node in nodes)
             {
                 MSCCommon.Session _session = new Session();
-                _session.wId = Convert.ToInt64(node.ChildNodes[0].InnerText);
+                _session.wId = Convert.ToInt64(node.ChildNodes[0].InnerText);                
                 _session.title = node.ChildNodes[1].InnerText;
                 _session.tutorLink = node.ChildNodes[3].InnerText;
-                _session.recordingLink = node.ChildNodes[4].InnerText; 
+                _session.presenterLink = node.ChildNodes[3].InnerText;
+                _session.recordingLink = node.ChildNodes[4].InnerText;
+                _session.wMasterId = Convert.ToInt64(node.ChildNodes[5].InnerText);
                 _session.tutorId = 10;              
                 _session.presenterEmail = "gaurav.gautam17@gmail.com";
                 _session.batchId = 1;
@@ -139,10 +144,10 @@ namespace MSCCommon
                 _session.presenterDefaultControls = "audio, video";
                 _session.attendeeDefaultControls = "audio, writing";
                 _session.createRecording = true;
-                _session.returnUrl = "http://localhost:31313/login";
-                _session.statusPingUrl = "http://localhost:31313/login";
-                _session.attendeeLink = "http://localhost:31313/login";
-                _session.coPresenterUrl = "http://localhost:31313/login";
+                _session.returnUrl = "https://account.mystudycart.com/";
+                _session.statusPingUrl = "https://account.mystudycart.com/";
+                _session.attendeeLink = "https://account.mystudycart.com/";                
+                _session.coPresenterLink = "https://account.mystudycart.com/";
                 _session.isDelete = false;
                 _session.isCancelled = false;
                 _session.sessionDate = DateTime.Now;

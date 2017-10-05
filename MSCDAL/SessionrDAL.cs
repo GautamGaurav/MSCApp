@@ -42,7 +42,8 @@ namespace MSCDAL
                         _session.createRecording = Convert.ToBoolean(reader["CreateRecording"]);
                         _session.returnUrl = Convert.ToString(reader["ReturnUrl"]);
                         _session.statusPingUrl = Convert.ToString(reader["StatusPingUrl"]);
-                        //_session.coPresenterUrl = Convert.ToString(reader["CoPresenterUrl"]);
+                        _session.presenterLink = Convert.ToString(reader["PresenterLink"]);
+                        _session.coPresenterLink = Convert.ToString(reader["CoPresenterLink"]);
 
                         _session.batchId = Convert.ToInt32(reader["BatchId"]);
                         _session.batchName = Convert.ToString(reader["BatchName"]);
@@ -105,6 +106,8 @@ namespace MSCDAL
                         _session.startTime = Convert.ToString(reader["StartTime"]);
                         _session.createdDate = Convert.ToDateTime(reader["CreatedDate"]);
                         _session.deletedDate = Convert.ToDateTime(reader["DeletedDate"]);
+                        _session.presenterLink = Convert.ToString(reader["PresenterLink"]);
+                        _session.coPresenterLink = Convert.ToString(reader["CoPresenterLink"]);
                         _session.status = 200;
                         _session.message = "Session Found.";
                         _session.isError = false;
@@ -124,7 +127,7 @@ namespace MSCDAL
                 SqlCommand cmd = new SqlCommand("CreateSession", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@WId", session.wId));
-                cmd.Parameters.Add(new SqlParameter("@WMasterId", session.wId));
+                cmd.Parameters.Add(new SqlParameter("@WMasterId", session.wMasterId));
                 cmd.Parameters.Add(new SqlParameter("@Title", session.title));
                 cmd.Parameters.Add(new SqlParameter("@TutorId", session.tutorId));
                 cmd.Parameters.Add(new SqlParameter("@BatchId", session.batchId));
@@ -148,6 +151,8 @@ namespace MSCDAL
                 cmd.Parameters.Add(new SqlParameter("@IsDelete", session.isDelete));
                 cmd.Parameters.Add(new SqlParameter("@CreatedDate", session.createdDate));
                 cmd.Parameters.Add(new SqlParameter("@DeletedDate", session.deletedDate));
+                cmd.Parameters.Add(new SqlParameter("@PresenterLink", session.presenterLink));
+                cmd.Parameters.Add(new SqlParameter("@CoPresenterLink", session.coPresenterLink));
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 con.Close();
@@ -157,7 +162,6 @@ namespace MSCDAL
             }
             return _response;
         }
-
         public static Response Update(Session session)
         {
             Response _response = new Response();
@@ -203,7 +207,6 @@ namespace MSCDAL
             }
             return response;
         }
-
         public static Response Cancel(Session session)
         {
             Response response = new Response();
@@ -223,7 +226,6 @@ namespace MSCDAL
             }
             return response;
         }
-
         public static void SyncClasses(Session session)
         {
             SessionDAL.Create(session);
