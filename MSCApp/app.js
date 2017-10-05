@@ -18,9 +18,22 @@ wiziqApp.config(['$routeProvider', '$locationProvider', '$stateProvider', functi
             templateUrl: '/app/admin/index.html',
             controller: 'AdminController'
         })
-        .state('admin/home', {
-            url: '/admin/home',
-            templateUrl: '/app/admin/index.html'
+
+        .state('admin/profile', {
+            url: '/admin/profile',
+            templateUrl: '/app/admin/partials/profile.html'
+        })
+        .state('admin/change-password', {
+            url: '/admin/change-password',
+            templateUrl: '/app/admin/partials/change-password.html'
+        })
+        .state('admin/security', {
+            url: '/admin/security',
+            templateUrl: '/app/admin/partials/security.html'
+        })
+        .state('admin/settings', {
+            url: '/admin/settings',
+            templateUrl: '/app/admin/partials/settings.html'
         })
 
 
