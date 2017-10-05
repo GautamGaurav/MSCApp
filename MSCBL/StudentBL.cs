@@ -60,5 +60,9 @@ namespace MSCBL
         {
             MSCDAL.StudentDAL.SyncStudents(Student);
         }
+        public static List<Student> GetStudentByBatchId(int batchId)
+        {
+            return MSCDAL.StudentDAL.GetStudentByBatchId(batchId);
+        }
     }
 }

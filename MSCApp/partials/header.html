@@ -8,7 +8,10 @@
                 <span class="icon-bar"></span>
             </button>
             <span class="navbar-brand" href="#">
-                <i class="fa fa-user-circle-o" aria-hidden="true"></i> Welcome {{user.name}}            
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i> Welcome {{user.name}}
+                <span data-ng-if="user.userType == 1"  style="color:deepskyblue;">&nbsp;(Admin) </span>
+                <span data-ng-if="user.userType == 2"  style="color:green;">&nbsp;(Student) </span>
+                <span data-ng-if="user.userType == 3"  style="color:purple;">&nbsp;(Teacher) </span>
             </span>
         </div>
         <div class="collapse navbar-collapse">
@@ -39,9 +42,9 @@
                         <p class="hidden-lg hidden-md">Profile</p>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Profile</a></li>              
-                        <li><a href="#">Change Password</a></li> 
-                        <li><a href="#">Settings</a></li> 
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Change Password</a></li>
+                        <li><a href="#">Settings</a></li>
                     </ul>
                 </li>
                 <li>

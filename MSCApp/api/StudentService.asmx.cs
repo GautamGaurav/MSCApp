@@ -54,7 +54,6 @@ namespace MSCApp.api
             return studentSessions;
         }
 
-
         [WebMethod]
         public List<StudentSession> GetLiveSessionByStudentId(int id)
         {
@@ -90,6 +89,14 @@ namespace MSCApp.api
 
 
             return isDeleted;
+        }
+
+        [WebMethod]
+        public List<Student> GetStudentByBatchId(int batchId)
+        {
+            List<Student> studentList = new List<Student>();
+            studentList = MSCBL.StudentBL.GetStudentByBatchId(batchId);
+            return studentList;
         }
 
     }

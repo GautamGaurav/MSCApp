@@ -178,7 +178,7 @@
                     icon = "warning";
                     break;
                 default:
-                    con = "info";
+                    icon = "info";
             }
 
             $.notify({
@@ -206,6 +206,27 @@
             } else {
                 $.notify({ icon: "warning", message: "Oops... something went wrong!" }, { type: "danger", timer: time, placement: { from: 'top', align: 'right' } });
             }
+        },
+
+        show: function (message, index) {
+            var icon = "notifications";
+            switch (index) {
+                case 1:
+                    icon = "notifications";
+                    break;
+                case 2:
+                    icon = "done";
+                case 3:
+                    icon = "warning";
+                    break;
+                case 4:
+                    icon = "info";
+                    break;
+                default:
+                    icon = "info";
+            }
+            var time = 2000;
+            $.notify({ icon: icon, message: message }, { type: type[index], timer: time, placement: { from: 'top', align: 'right' } });
         }
     };
 }])

@@ -27,9 +27,8 @@
                             <th>Tutor</th>
                             <th>Duration</th>
                             <th>Start Time</th>
-                            <!--<th>Attendee Link</th>
                             <th>Presenter Link</th>
-                            <th>Recording Link</th>-->
+                            <th>Co-Presenter Link</th>
                             <th>View</th>
                             <th>Edit</th>
                             <th>Cancel</th>
@@ -42,16 +41,13 @@
                                     <td>{{class.batchName}}</td>
                                     <td>{{class.tutorName}} <!--({{class.tutorEmail}})--></td>
                                     <td>{{class.duration}} (Min.)</td>
-                                    <td>{{class.startTime}}</td>
-                                    <!--<td>
-                                        <a href="{{class.attendeeLink}}" title="{{class.attendeeLink}}" target="_blank"> <i class="fa fa-link" aria-hidden="true"></i> Link</a>
+                                    <td>{{class.startTime}}</td>                                   
+                                    <td>
+                                        <a href="{{class.presenterLink}}" title="{{class.presenterLink}}" target="_blank"><i class="fa fa-link" aria-hidden="true"></i> Link</a>
                                     </td>
                                     <td>
-                                        <a href="{{class.tutorLink}}" title="{{class.tutorLink}}" target="_blank"><i class="fa fa-link" aria-hidden="true"></i> Link</a>
+                                        <a href="{{class.coPresenterLink}}" title="{{class.coPresenterLink}}" target="_blank"> <i class="fa fa-link" aria-hidden="true"></i> Link</a>
                                     </td>
-                                    <td>
-                                        <a href="{{class.recordingLink}}" title="{{class.recordingLink}}" target="_blank"><i class="fa fa-link" aria-hidden="true"></i> Link</a>
-                                    </td>-->
                                     <td>
                                         <button type="button" rel="tooltip" title="View Class Details" class="btn btn-primary btn-simple btn-xs" data-ng-click="viewClass(class)">
                                             <i class="fa fa-eye" aria-hidden="true"></i>

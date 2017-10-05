@@ -26,7 +26,8 @@
         createRecording: true,
         recordingLink: "",
         returnUrl: "",
-        coPresenterUrl: "",
+        coPresenterLink: "",
+        presenterLink: "",
 
         wId: 0,
         id: 0,
@@ -99,7 +100,7 @@
     $scope.syncClasses = function () {
         AdminClassService.syncClasses().then(
             function (response) {
-                $scope.ClassList = response.data.d;
+                $scope.classList = response.data.d;
             }, function (error) {
                 notificationService.responseHandler(error);
             });
