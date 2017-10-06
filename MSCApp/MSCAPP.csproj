@@ -302,6 +302,11 @@
     <Content Include="app\admin\feature\teacher\partials\update-teacher.html" />
     <Content Include="app\admin\feature\teacher\services\adminTeacher--service.js" />
     <Content Include="app\admin\index.html" />
+    <Content Include="app\admin\partials\profile.html" />
+    <Content Include="app\admin\partials\change-password.html" />
+    <Content Include="app\admin\partials\security.html" />
+    <Content Include="app\admin\partials\settings.html" />
+    <Content Include="app\admin\services\admin--service.js" />
     <Content Include="app\student\controllers\student--controller.js" />
     <Content Include="app\student\partials\download-recordings.html" />
     <Content Include="app\student\partials\live-classes.html" />
@@ -393,7 +398,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\admin\services\" />
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
   </ItemGroup>

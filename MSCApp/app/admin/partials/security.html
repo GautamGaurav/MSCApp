@@ -5,37 +5,47 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header" data-background-color="green">
-                        <h4 class="title">Update Security</h4>
+                        <h4 class="title">Security</h4>
                         <p class="category">View Encryption Decryption</p>
                     </div>
                     <div class="card-content">
                         <form name="batchForm">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Enter Text To Encrypt</label>
-                                        <input type="text" name="batchName" class="form-control" data-ng-model="batch.name" maxlength="50" minlength="4" required />
-                                        <div data-ng-show="nameRequired" class="ng-error">Please enter name.</div>
+                                        <input type="text" name="batchName" class="form-control" data-ng-model="inputEncryptText" required />
+                                        <div data-ng-show="nameRequired" class="ng-error">Please Enter Text To Encrypt.</div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
-                                        <button type="submit" class="btn btn-primary pull-right" data-ng-click="createBatch()">Show Encrypted Text</button>
+                                        <span>{{outputEncryptedText}}</span>                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group label-floating">
+                                        <button type="submit" class="btn btn-primary pull-right" data-ng-click="encryptText()">Show Encrypted Text</button>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Enter Text To Decrypt</label>
-                                        <input type="text" name="batchName" class="form-control" data-ng-model="batch.name" maxlength="50" minlength="4" required />
-                                        <div data-ng-show="nameRequired" class="ng-error">Please enter name.</div>
+                                        <input type="text" name="batchName" class="form-control" data-ng-model="inputDecryptText" required />
+                                        <div data-ng-show="nameRequired" class="ng-error">Please Enter Text To Decrypt.</div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
-                                        <button type="submit" class="btn btn-primary pull-right" data-ng-click="createBatch()">Show Decrypted Text</button>
+                                        <span>{{outputDecryptedText}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group label-floating">
+                                        <button type="submit" class="btn btn-primary pull-right" data-ng-click="decryptText()">Show Decrypted Text</button>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
