@@ -27,13 +27,16 @@
             $rootScope.isLoggedIn = false;
             $location.path("/login");
         }
-    }
+    };
+
+    _this.checkForMatchingValues = function (value1, value2) {
+        return value1 === value2 ? true : false;
+    };
 
     _this.changeClass = function (id) {
         $("#sidebar-menu").find('li').removeClass("active");
         $('#li' + id).addClass('active');
     };
-
 
     _this.getDomain = function () {
         var domain = "";
@@ -54,35 +57,29 @@
             }
         };
         return config;
-    }
+    };
 
     _this.getCurrentState = function () {
         var state = $state.current.name;
         return state;
-    }
+    };
 
     _this.isValidNumber = function (phoneNumber) {
         var phoneno = new RegExp(/^\+\d{1,3} \d{9,10}$/, "g");
         return phoneNumber.match(phoneno) ? true : false;
-    }
+    };
 
     _this.getAllTimeZone = function () {
         var config = _this.getConfig();
         var domain = _this.getDomain();
         return $http.post(domain + 'UtilService.asmx/GetAllTimeZone', config);
-    }
+    };
 
     _this.getAllLanguageCultures = function () {
         var config = _this.getConfig();
         var domain = _this.getDomain();
         return $http.post(domain + 'UtilService.asmx/GetAllLanguageCulture', config);
-    }
-
-    _this.getAppData = function () {
-        var config = _this.getConfig();
-        var domain = _this.getDomain();
-        return $http.post(domain + 'UtilService.asmx/GetAppData', config);
-    }
+    };
 
     _this.isUndefinedOrNullOrBlank = function (val) {
         if (angular.isUndefined(val) && val === null && val === "") {
@@ -90,18 +87,5 @@
         } else {
             return true;
         };
-    }
-
-    //_this.getEncryptedText = function (input) {
-    //    var key = CryptoJS.enc.Utf8.parse('8080808080808080');
-    //    var iv = CryptoJS.enc.Utf8.parse('8080808080808080');
-    //    var encryptedOutput = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(input), key,
-    //    {
-    //        keySize: 128 / 8,
-    //        iv: iv,
-    //        mode: CryptoJS.mode.CBC,
-    //        padding: CryptoJS.pad.Pkcs7
-    //    });
-    //    return encryptedOutput;
-    //}
+    };
 }]);

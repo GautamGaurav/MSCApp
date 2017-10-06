@@ -61,6 +61,40 @@ namespace MSCDAL
             return _user;
         }
 
+
+        public static Response ChangePassword(string oldPassword, string newPassword, int userId, string userEmail)
+        {
+            Response _response = new Response(200, "Password Changed Successfully", false);
+            try
+            {
+                string cs = ConnectionDAL.GetConnectionString();
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    SqlCommand cmd = new SqlCommand("ChangePassword", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@OldPassword", oldPassword));
+                    cmd.Parameters.Add(new SqlParameter("@NewPassword", newPassword));
+                    cmd.Parameters.Add(new SqlParameter("@UserId", userId));
+                    cmd.Parameters.Add(new SqlParameter("@UserEmail", userEmail));
+                    cmd.Parameters.Add("@OutPut", SqlDbType.Int);
+                    cmd.Parameters["@OutPut"].Direction = ParameterDirection.Output;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    string output =  cmd.Parameters["@OutPut"].Value.ToString();
+                    if (output == "0") {
+                        _response.message = "Old Password Does Not Match.";
+                        _response.isError = true;
+                        _response.status = 400;
+                    }
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                _response = Response.ParseException(ex);
+            }
+            return _response;
+        }
         public static bool Logout(int id)
         {
             bool isLogout = true;

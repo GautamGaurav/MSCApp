@@ -43,5 +43,35 @@ namespace MSCApp.api
             }
             return _user;
         }
+
+        [WebMethod]
+        public Response ChangePassword(string oldPassword, string newPassword, int userId, string userEmail)
+        {
+            Response _response = new Response();
+            try
+            {
+                //string decryptedPassword = MSCServices.AuthBase.DecryptText(oldPassword);
+                string encryptedOldPassword = MSCServices.AuthBase.EncryptText(oldPassword);
+                string encryptedNewPassword = MSCServices.AuthBase.EncryptText(newPassword);
+                _response = UsersBL.ChangePassword(encryptedOldPassword, encryptedNewPassword, userId, userEmail);
+            }
+            catch (Exception ex)
+            {
+                _response = Response.ParseException(ex);
+            }
+            return _response;
+        }
+
+        [WebMethod]
+        public string DecryptText(string inputText)
+        {
+            return MSCServices.AuthBase.DecryptText(inputText);
+        }
+
+        [WebMethod]
+        public string EncryptText(string inputText)
+        {
+            return MSCServices.AuthBase.EncryptText(inputText);
+        }
     }
 }
